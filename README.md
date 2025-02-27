@@ -9,11 +9,11 @@ https://nodejs.org/download/release/v20.14.0/
 4. Chạy dự án: npm run dev
 
 ## Tạo file .env:
-'''
+```
 PORT=
 MONGODB_URI=
 JWT_SECRET=
 JWT_ACCESS_TOKEN_EXPIRED=
 MAIL_USER=
 MAIL_PASSWORD=
-'''
+```
