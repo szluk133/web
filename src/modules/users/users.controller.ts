@@ -9,13 +9,14 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) { }
 
   @Post()
-
+  @Public()
+  
   create(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
   }
 
   @Get()
-
+  
   async findAll(
     @Query() query: string,
     @Query("current") current: string,
@@ -25,16 +26,19 @@ export class UsersController {
   }
 
   @Get(':id')
+  
   findOne(@Param('id') id: string) {
-    return this.usersService.findOne(+id);
+    return this.usersService.findOne(id);
   }
 
   @Patch()
+  
   update(@Body() updateUserDto: UpdateUserDto) {
     return this.usersService.update(updateUserDto);
   }
 
   @Delete(':id')
+  @Public()
   remove(@Param('id') id: string) {
     return this.usersService.remove(id);
   }

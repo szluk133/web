@@ -2,12 +2,14 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { MenuItemsService } from './menu.items.service';
 import { CreateMenuItemDto } from './dto/create-menu.item.dto';
 import { UpdateMenuItemDto } from './dto/update-menu.item.dto';
+import { Public } from '@/decorator/customize';
 
 @Controller('menu-items')
 export class MenuItemsController {
   constructor(private readonly menuItemsService: MenuItemsService) { }
 
   @Post()
+  @Public()
   create(@Body() createMenuItemDto: CreateMenuItemDto) {
     return this.menuItemsService.create(createMenuItemDto);
   }
@@ -19,16 +21,16 @@ export class MenuItemsController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.menuItemsService.findOne(+id);
+    return this.menuItemsService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateMenuItemDto: UpdateMenuItemDto) {
-    return this.menuItemsService.update(+id, updateMenuItemDto);
+    return this.menuItemsService.update(id, updateMenuItemDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.menuItemsService.remove(+id);
+    return this.menuItemsService.remove(id);
   }
 }

@@ -56,7 +56,7 @@ export class AuthController {
   testMail() {
     this.mailerService
       .sendMail({
-        to: 'ads.hoidanit@gmail.com', // list of receivers
+        to: 'audauwa3@gmail.com', // list of receivers
         subject: 'Testing Nest MailerModule ✔', // Subject line
         text: 'welcome', // plaintext body
         template: "register",

@@ -6,8 +6,8 @@ export type MenuItemDocument = HydratedDocument<MenuItem>;
 
 @Schema({ timestamps: true })
 export class MenuItem {
-    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: Menu.name })
-    menu: mongoose.Schema.Types.ObjectId;
+    @Prop()
+    menu: string;
 
     @Prop()
     title: string;

@@ -78,9 +78,10 @@ export class UsersService {
     }
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  async findOne(id: string) {
+    return await this.userModel.findById(id).select("-password");
   }
+  
 
   async findByEmail(email: string) {
     return await this.userModel.findOne({ email })
@@ -125,7 +126,7 @@ export class UsersService {
     //send email
     this.mailerService.sendMail({
       to: user.email, // list of receivers
-      subject: 'Activate your account at @hoidanit', // Subject line
+      subject: 'Activate your account at @lvc', // Subject line
       template: "register",
       context: {
         name: user?.name ?? user.email,
@@ -218,7 +219,7 @@ export class UsersService {
     //send email
     this.mailerService.sendMail({
       to: user.email, // list of receivers
-      subject: 'Change your password account at @hoidanit', // Subject line
+      subject: 'lvc', // Subject line
       template: "register",
       context: {
         name: user?.name ?? user.email,
